@@ -31,23 +31,28 @@
 <body class="antialiased font-manrope">
 
     <!-- Main Learning Interface -->
-<div class="min-h-screen bg-gray-50" x-data="courseData()" x-init="initializeCourse()">
+<div class="relative min-h-screen" x-data="courseData()" x-init="initializeCourse()">
+        <!-- Dark Red RADIAL Combination Background -->
+        <div class="fixed inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rebel-red-950/95 via-rebel-red-900/70 to-rebel-black-1000/95 -z-10"></div>
+        <div class="fixed inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-rebel-black-1000/60 via-transparent to-transparent -z-10"></div>
+        <div class="fixed inset-0 bg-rebel-red-950/30 -z-10"></div>
+        
         
         <!-- Fixed Sidebar -->
         <aside :class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}" 
-               class="fixed inset-y-0 left-0 z-50 flex flex-col bg-white w-80 lg:w-96 h-screen border-r border-gray-200 transition-transform duration-300 ease-in-out -translate-x-full lg:translate-x-0">
+               class="fixed inset-y-0 left-0 z-50 flex flex-col bg-rebel-black-1000/95 backdrop-blur-sm w-80 lg:w-96 h-screen border-r border-rebel-red-900/30 transition-transform duration-300 ease-in-out -translate-x-full lg:translate-x-0">
         
             <!-- Back to Course Details/Dashboard -->
-            <div class="px-6 py-4 bg-gradient-to-r from-mountain-meadow-600 to-mountain-meadow-700">
+            <div class="px-6 py-4 bg-gradient-to-r from-gold-600 to-gold-700">
                 @auth
-                    <a href="{{ route('dashboard') }}" class="inline-flex items-center text-white hover:text-mountain-meadow-100 transition-colors cursor-pointer">
+                    <a href="{{ route('dashboard') }}" class="inline-flex items-center text-white hover:text-gold-100 transition-colors cursor-pointer">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                         </svg>
                         Back to Dashboard
                     </a>
                 @else
-                    <a href="{{ route('front.course.details', $course->slug) }}" class="inline-flex items-center text-white hover:text-mountain-meadow-100 transition-colors cursor-pointer">
+                    <a href="{{ route('front.course.details', $course->slug) }}" class="inline-flex items-center text-white hover:text-gold-100 transition-colors cursor-pointer">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                         </svg>
@@ -57,8 +62,8 @@
             </div>
         
             <!-- Mobile Close Button -->
-            <div class="lg:hidden flex items-center justify-end px-4 py-3 border-b border-gray-100">
-                <button @click="sidebarOpen = false" class="p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer">
+            <div class="lg:hidden flex items-center justify-end px-4 py-3 border-b border-rebel-red-900/20">
+                <button @click="sidebarOpen = false" class="p-2 rounded-lg text-beige-400 hover:text-beige-50 hover:bg-rebel-red-900/30 transition-colors cursor-pointer">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
@@ -75,21 +80,21 @@
                             $sectionId = 'section_' . $section->id;
                             $freeContentCount = $sectionFreeCounts[$section->id] ?? 0;
                         @endphp
-                        <div class="pt-2 mb-2 last:mb-0 border-t border-mountain-meadow-200 first:border-t-0">
+                        <div class="pt-2 mb-2 last:mb-0 border-t border-rebel-red-900/20 first:border-t-0">
                             <!-- Section Header (Clickable) -->
                             <button type="button" 
                                     @click="toggleSection('{{ $sectionId }}')"
-                                    class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors group cursor-pointer">
+                                    class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-rebel-red-900/20 transition-colors group cursor-pointer">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-8 h-8 rounded-lg bg-mountain-meadow-100 flex items-center justify-center flex-shrink-0">
-                                        <span class="text-mountain-meadow-700 font-semibold text-sm">{{ $sectionIndex + 1 }}</span>
+                                    <div class="w-8 h-8 rounded-lg bg-gold-100 flex items-center justify-center flex-shrink-0">
+                                        <span class="text-gold-700 font-semibold text-sm">{{ $sectionIndex + 1 }}</span>
                                     </div>
                                     <div class="text-left">
-                                        <h3 class="font-semibold text-gray-900 text-base group-hover:text-mountain-meadow-700 transition-colors">{{ $section->name }}</h3>
-                                        <div class="flex items-center space-x-2 text-xs text-gray-500 mt-0.5">
+                                        <h3 class="font-semibold text-beige-50 text-base group-hover:text-gold-400 transition-colors">{{ $section->name }}</h3>
+                                        <div class="flex items-center space-x-2 text-xs text-beige-400 mt-0.5">
                                             <span>{{ $sectionContentCounts[$section->id] ?? 0 }} lessons</span>
                                             @if($freeContentCount > 0)
-                                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gold-500/20 text-gold-400">
                                                     <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                                                     </svg>
@@ -101,7 +106,7 @@
                                 </div>
                                 
                                 <!-- Dropdown Arrow -->
-                                <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-200" 
+                                <svg class="w-5 h-5 text-beige-400 transform transition-transform duration-200" 
                                      :class="openSections['{{ $sectionId }}'] ? 'rotate-180' : ''"
                                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -141,11 +146,11 @@
                                         <a href="{{ route($routeName, $routeParams) }}" 
                                            @click="sidebarOpen = false" 
                                            class="group block cursor-pointer">
-                                            <div class="flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 {{ $isActive ? 'bg-mountain-meadow-50 border border-mountain-meadow-200' : 'hover:bg-gray-50 border border-transparent hover:border-gray-200' }}">
+                                            <div class="flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 {{ $isActive ? 'bg-gold-600/20 border border-gold-500/40' : 'hover:bg-rebel-red-900/20 border border-transparent hover:border-rebel-red-900/30' }}">
                                                 <!-- Lesson Status Icon -->
                                                 <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0">
                                                     @if($isActive)
-                                                        <div class="w-6 h-6 bg-mountain-meadow-600 text-white rounded-full flex items-center justify-center">
+                                                        <div class="w-6 h-6 bg-gold-600 text-white rounded-full flex items-center justify-center">
                                                             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                                                                 <path d="M8 5v14l11-7z"/>
                                                             </svg>
@@ -157,13 +162,13 @@
                                                             </svg>
                                                         </div>
                                                     @elseif($content->is_free)
-                                                        <div class="w-6 h-6 bg-green-100 text-green-600 group-hover:bg-mountain-meadow-100 group-hover:text-mountain-meadow-600 rounded-full flex items-center justify-center">
+                                                        <div class="w-6 h-6 bg-green-100 text-green-600 group-hover:bg-gold-100 group-hover:text-gold-600 rounded-full flex items-center justify-center">
                                                             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                                                             </svg>
                                                         </div>
                                                     @else
-                                                        <div class="w-6 h-6 bg-mountain-meadow-100 text-mountain-meadow-600 group-hover:bg-mountain-meadow-200 rounded-full flex items-center justify-center">
+                                                        <div class="w-6 h-6 bg-gold-100 text-gold-600 group-hover:bg-gold-200 rounded-full flex items-center justify-center">
                                                             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                                                                 <path d="M8 5v14l11-7z"/>
                                                             </svg>
@@ -173,19 +178,19 @@
                                                 
                                                 <!-- Lesson Info -->
                                                 <div class="flex-1 min-w-0">
-                                                    <h4 class="font-medium text-sm {{ $isActive ? 'text-mountain-meadow-900' : 'text-gray-900 group-hover:text-mountain-meadow-700' }} line-clamp-2 leading-tight">
+                                                    <h4 class="font-medium text-sm {{ $isActive ? 'text-gold-400' : 'text-beige-50 group-hover:text-gold-400' }} line-clamp-2 leading-tight">
                                                         {{ $lessonNumber }}. {{ $content->name }}
                                                     </h4>
-                                                    <div class="flex items-center text-xs text-gray-500 mt-1">
+                                                    <div class="flex items-center text-xs text-beige-400 mt-1">
                                                         @if($content->is_free)
-                                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gold-500/20 text-gold-400">
                                                                 <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                                                                 </svg>
                                                                 Free
                                                             </span>
                                                         @else
-                                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-mountain-meadow-100 text-mountain-meadow-800">
+                                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gold-100 text-gold-800">
                                                                 <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                                                     <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 616 0z" clip-rule="evenodd"/>
                                                                 </svg>
@@ -193,7 +198,7 @@
                                                             </span>
                                                         @endif
                                                         @if($isCompleted)
-                                                            <span class="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                            <span class="ml-2 inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gold-500/20 text-gold-400">
                                                                 ✓ Completed
                                                             </span>
                                                         @endif
@@ -202,7 +207,7 @@
                                                 
                                                 <!-- Active Indicator -->
                                                 @if($isActive)
-                                                <div class="w-2 h-8 bg-mountain-meadow-600 rounded-full flex-shrink-0"></div>
+                                                <div class="w-2 h-8 bg-gold-600 rounded-full flex-shrink-0"></div>
                                                 @endif
                                             </div>
                                         </a>
@@ -215,27 +220,27 @@
                 
                 <!-- CTA Section -->
                 @if(!auth()->check())
-                <div class="p-6 bg-gradient-to-r from-mountain-meadow-600 to-mountain-meadow-700 text-white">
+                <div class="p-6 bg-gradient-to-r from-gold-600 to-gold-700 text-white">
                     <div class="text-center">
                         <h3 class="text-lg font-bold mb-2">Ready to Continue?</h3>
-                        <p class="text-sm text-mountain-meadow-100 mb-4">Get full access to all lessons, quizzes, and certificates.</p>
+                        <p class="text-sm text-gold-100 mb-4">Get full access to all lessons, quizzes, and certificates.</p>
                         <div class="space-y-3">
                             <a href="{{ route('dashboard.course.join', $course->slug) }}" 
-                               class="w-full inline-flex items-center justify-center px-4 py-3 bg-white text-mountain-meadow-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                               class="w-full inline-flex items-center justify-center px-4 py-3 bg-white text-gold-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                                 </svg>
                                 Start Learning
                             </a>
                             <a href="{{ route('register') }}" 
-                               class="w-full inline-flex items-center justify-center px-4 py-3 bg-white text-mountain-meadow-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                               class="w-full inline-flex items-center justify-center px-4 py-3 bg-white text-gold-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                                 </svg>
                                 Sign Up Now
                             </a>
                             <a href="{{ route('login') }}" 
-                               class="w-full inline-flex items-center justify-center px-4 py-2 border border-white text-white font-medium rounded-lg hover:bg-white hover:text-mountain-meadow-700 transition-colors cursor-pointer">
+                               class="w-full inline-flex items-center justify-center px-4 py-2 border border-white text-white font-medium rounded-lg hover:bg-white hover:text-gold-700 transition-colors cursor-pointer">
                                 Already have an account? Login
                             </a>
                         </div>
@@ -248,44 +253,44 @@
         <!-- Main Content Area -->
         <div class="lg:ml-96 min-h-screen flex flex-col">
             <!-- Mobile Header -->
-            <div class="lg:hidden bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between sticky top-0 z-30">
-                <button @click="sidebarOpen = true" class="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors cursor-pointer">
+            <div class="lg:hidden bg-rebel-black-1000/95 backdrop-blur-sm border-b border-rebel-red-900/30 px-4 py-3 flex items-center justify-between sticky top-0 z-30">
+                <button @click="sidebarOpen = true" class="p-2 rounded-lg text-beige-400 hover:text-beige-50 hover:bg-rebel-red-900/30 transition-colors cursor-pointer">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
-                <h1 class="text-lg font-semibold text-gray-900 truncate">{{ $sectionContent->name }}</h1>
+                <h1 class="text-lg font-semibold text-beige-50 truncate">{{ $sectionContent->name }}</h1>
                 <div class="w-10"></div> <!-- Spacer for center alignment -->
             </div>
             
             <!-- Desktop Header -->
-            <div class="hidden lg:block bg-white border-b border-gray-200 px-6 lg:px-8 py-4 sticky top-0 z-30">
+            <div class="hidden lg:block bg-rebel-black-1000/95 backdrop-blur-sm border-b border-rebel-red-900/30 px-6 lg:px-8 py-4 sticky top-0 z-30">
                 <!-- Breadcrumb Navigation -->
                 <nav class="flex items-center space-x-2 text-sm mb-3">
                     @auth
-                        <a href="{{ route('dashboard') }}" class="text-gray-500 hover:text-mountain-meadow-600 transition-colors cursor-pointer">Dashboard</a>
-                        <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <a href="{{ route('dashboard') }}" class="text-beige-400 hover:text-gold-400 transition-colors cursor-pointer">Dashboard</a>
+                        <svg class="w-4 h-4 text-rebel-red-900/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
-                        <a href="{{ route('dashboard') }}" class="text-gray-500 hover:text-mountain-meadow-600 transition-colors truncate max-w-xs cursor-pointer">{{ $course->name }}</a>
+                        <a href="{{ route('dashboard') }}" class="text-beige-400 hover:text-gold-400 transition-colors truncate max-w-xs cursor-pointer">{{ $course->name }}</a>
                     @else
-                        <a href="{{ route('front.course.details', $course->slug) }}" class="text-gray-500 hover:text-mountain-meadow-600 transition-colors cursor-pointer">Course Details</a>
-                        <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <a href="{{ route('front.course.details', $course->slug) }}" class="text-beige-400 hover:text-gold-400 transition-colors cursor-pointer">Course Details</a>
+                        <svg class="w-4 h-4 text-rebel-red-900/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
-                        <a href="{{ route('front.course.details', $course->slug) }}" class="text-gray-500 hover:text-mountain-meadow-600 transition-colors truncate max-w-xs cursor-pointer">{{ $course->name }}</a>
+                        <a href="{{ route('front.course.details', $course->slug) }}" class="text-beige-400 hover:text-gold-400 transition-colors truncate max-w-xs cursor-pointer">{{ $course->name }}</a>
                     @endauth
-                    <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 text-rebel-red-900/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
-                    <span class="text-gray-900 font-medium truncate max-w-xs">{{ $sectionContent->name }}</span>
+                    <span class="text-beige-50 font-medium truncate max-w-xs">{{ $sectionContent->name }}</span>
                 </nav>
                 
                 <!-- Lesson Title and Info -->
                 <div class="flex items-center justify-between">
                     <div>
-                        <h1 class="text-2xl font-bold text-gray-900">{{ $sectionContent->name }}</h1>
-                        <div class="flex items-center text-sm text-gray-600 mt-1">
+                        <h1 class="text-2xl font-bold text-beige-50">{{ $sectionContent->name }}</h1>
+                        <div class="flex items-center text-sm text-beige-300 mt-1">
                             @if(!$sectionContent->is_free && !auth()->check())
                                 <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 mr-2">
                                     <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -301,14 +306,14 @@
                                     👑 Admin Access
                                 </span>
                             @elseif(!$sectionContent->is_free && auth()->check())
-                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-mountain-meadow-100 text-mountain-meadow-800 mr-2">
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gold-100 text-gold-800 mr-2">
                                     <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 616 0z" clip-rule="evenodd"/>
                                     </svg>
                                     Premium Learning
                                 </span>
                             @else
-                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 mr-2">
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gold-500/20 text-gold-400 mr-2">
                                     <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                                     </svg>
@@ -321,8 +326,8 @@
                     
                     @if(!$sectionContent->is_free && auth()->check() && isset($currentProgress))
                     <!-- Progress Info -->                        
-                    <div class="hidden sm:flex items-center space-x-2 text-sm text-gray-600">
-                        <svg class="w-4 h-4 text-mountain-meadow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="hidden sm:flex items-center space-x-2 text-sm text-beige-300">
+                        <svg class="w-4 h-4 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
                         <span x-text="`Lesson ${completedLessons} of ${totalLessons}`"></span>
@@ -332,15 +337,15 @@
                 
                 @if(!$sectionContent->is_free && auth()->check() && isset($currentProgress))
                 <!-- Progress Bar -->
-                <div class="w-full bg-gray-200 rounded-full h-2 mt-4">
-                    <div class="bg-gradient-to-r from-mountain-meadow-600 to-mountain-meadow-500 h-2 rounded-full transition-all duration-500" 
+                <div class="w-full bg-rebel-red-900/30 rounded-full h-2 mt-4">
+                    <div class="bg-gradient-to-r from-gold-600 to-gold-500 h-2 rounded-full transition-all duration-500" 
                          :style="`width: ${currentProgress}%`"></div>
                 </div>
                 @endif
             </div>
             
             <!-- Lesson Content -->
-            <div class="flex-1 bg-white">
+            <div class="flex-1 bg-transparent">
                 <article class="max-w-4xl mx-auto">
                     <div class="px-6 sm:px-8 lg:px-10 py-8 lg:py-12">
                         @if(!$sectionContent->is_free && !auth()->check())
@@ -364,7 +369,7 @@
                                                 Login to Access
                                             </a>
                                             <a href="{{ route('register') }}" 
-                                               class="inline-flex items-center px-4 py-2 bg-mountain-meadow-600 text-white font-semibold rounded-lg hover:bg-mountain-meadow-700 transition-colors cursor-pointer">
+                                               class="inline-flex items-center px-4 py-2 bg-gold-600 text-white font-semibold rounded-lg hover:bg-gold-700 transition-colors cursor-pointer">
                                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                                                 </svg>
@@ -398,16 +403,16 @@
                             </div>
                             
                             <!-- Course Navigation Buttons - Bottom -->
-                            <div class="flex flex-col sm:flex-row gap-3 mt-8 pt-6 border-t border-gray-200">
+                            <div class="flex flex-col sm:flex-row gap-3 mt-8 pt-6 border-t border-rebel-red-900/30">
                                 <button 
                                     @click="markLessonComplete()" 
                                     :disabled="isLessonCompleted || isLoading"
                                     class="inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer"
                                     :class="isLessonCompleted ? 
-                                        'bg-green-100 text-green-800 border border-green-300 cursor-not-allowed' : 
-                                        isLoading ? 'bg-gray-100 text-gray-500 border border-gray-300 cursor-not-allowed' :
-                                        'border border-green-300 text-green-700 bg-green-50 hover:bg-green-100 hover:border-green-400'">
-                                    <div x-show="isLoading" class="w-4 h-4 mr-2 animate-spin rounded-full border-2 border-gray-300 border-t-green-600"></div>
+                                        'bg-gold-500/20 text-gold-400 border border-gold-500/40 cursor-not-allowed' : 
+                                        isLoading ? 'bg-rebel-red-900/20 text-beige-400 border border-rebel-red-900/30 cursor-not-allowed' :
+                                        'border border-gold-500/40 text-gold-400 bg-gold-500/10 hover:bg-gold-500/20 hover:border-gold-500/60'">
+                                    <div x-show="isLoading" class="w-4 h-4 mr-2 animate-spin rounded-full border-2 border-rebel-red-900/30 border-t-gold-500"></div>
                                     <svg x-show="!isLoading" class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                     </svg>
@@ -416,7 +421,7 @@
                                 
                                 @if(isset($nextContent) && $nextContent)
                                 <a href="{{ route('front.course.preview', ['course' => $course->slug, 'sectionContent' => $nextContent->id]) }}" 
-                                   class="inline-flex items-center px-4 py-2 bg-mountain-meadow-600 text-white font-semibold rounded-lg hover:bg-mountain-meadow-700 transition-colors cursor-pointer">
+                                   class="inline-flex items-center px-4 py-2 bg-gold-600 text-white font-semibold rounded-lg hover:bg-gold-700 transition-colors cursor-pointer">
                                     <span>Continue Learning</span>
                                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -446,16 +451,16 @@
                             </div>
                             
                             <!-- Course Navigation Buttons - Bottom -->
-                            <div class="flex flex-col sm:flex-row gap-3 mt-8 pt-6 border-t border-gray-200">
+                            <div class="flex flex-col sm:flex-row gap-3 mt-8 pt-6 border-t border-rebel-red-900/30">
                                 <button 
                                     @click="markLessonComplete()" 
                                     :disabled="isLessonCompleted || isLoading"
                                     class="inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer"
                                     :class="isLessonCompleted ? 
-                                        'bg-green-100 text-green-800 border border-green-300 cursor-not-allowed' : 
-                                        isLoading ? 'bg-gray-100 text-gray-500 border border-gray-300 cursor-not-allowed' :
-                                        'border border-green-300 text-green-700 bg-green-50 hover:bg-green-100 hover:border-green-400'">
-                                    <div x-show="isLoading" class="w-4 h-4 mr-2 animate-spin rounded-full border-2 border-gray-300 border-t-green-600"></div>
+                                        'bg-gold-500/20 text-gold-400 border border-gold-500/40 cursor-not-allowed' : 
+                                        isLoading ? 'bg-rebel-red-900/20 text-beige-400 border border-rebel-red-900/30 cursor-not-allowed' :
+                                        'border border-gold-500/40 text-gold-400 bg-gold-500/10 hover:bg-gold-500/20 hover:border-gold-500/60'">
+                                    <div x-show="isLoading" class="w-4 h-4 mr-2 animate-spin rounded-full border-2 border-rebel-red-900/30 border-t-gold-500"></div>
                                     <svg x-show="!isLoading" class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                     </svg>
@@ -464,7 +469,7 @@
                                 
                                 @if(isset($nextContent) && $nextContent)
                                 <a href="{{ route('front.course.preview', ['course' => $course->slug, 'sectionContent' => $nextContent->id]) }}" 
-                                   class="inline-flex items-center px-4 py-2 bg-mountain-meadow-600 text-white font-semibold rounded-lg hover:bg-mountain-meadow-700 transition-colors cursor-pointer">
+                                   class="inline-flex items-center px-4 py-2 bg-gold-600 text-white font-semibold rounded-lg hover:bg-gold-700 transition-colors cursor-pointer">
                                     <span>Continue Learning</span>
                                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -505,7 +510,7 @@
     /* Sidebar Scrollbar Styling */
     .sidebar-scroll {
         scrollbar-width: thin;
-        scrollbar-color: #e5e7eb #f9fafb;
+        scrollbar-color: rgba(220, 38, 38, 0.3) rgba(0, 0, 0, 0.2);
     }
     
     .sidebar-scroll::-webkit-scrollbar {
@@ -513,16 +518,16 @@
     }
     
     .sidebar-scroll::-webkit-scrollbar-track {
-        background: #f9fafb;
+        background: rgba(0, 0, 0, 0.2);
     }
     
     .sidebar-scroll::-webkit-scrollbar-thumb {
-        background: #e5e7eb;
+        background: rgba(220, 38, 38, 0.3);
         border-radius: 3px;
     }
     
     .sidebar-scroll::-webkit-scrollbar-thumb:hover {
-        background: #d1d5db;
+        background: rgba(201, 151, 97, 0.5);
     }
     
     
@@ -533,15 +538,15 @@
     
     /* Enhanced blockquote styling for TipTap output */
     .filament-rich-content blockquote {
-        border-left: 4px solid #0f4c7a;
-        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border-left: 4px solid #C99761;
+        background: linear-gradient(135deg, rgba(201, 151, 97, 0.1) 0%, rgba(201, 151, 97, 0.05) 100%);
         padding: 1.5rem;
         margin: 2rem 0;
         border-radius: 0.75rem;
         font-style: italic;
         position: relative;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        color: #374151;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        color: #E7D4C0;
         font-size: 1.125rem;
         line-height: 1.75;
     }
@@ -552,7 +557,7 @@
         top: -0.5rem;
         left: 1rem;
         font-size: 4rem;
-        color: #0f4c7a;
+        color: #C99761;
         opacity: 0.3;
         font-family: Georgia, serif;
     }
@@ -564,7 +569,7 @@
     
     /* Enhanced paragraph styling */
     .filament-rich-content p {
-        color: #374151;
+        color: #E7D4C0;
         line-height: 1.75;
         text-align: justify;
     }
@@ -590,11 +595,11 @@
         display: list-item !important; /* Ensure list item display */
         list-style: inherit !important; /* Inherit parent list style */
         text-align: justify; /* Match paragraph justification */
-        color: #374151; /* Match paragraph color */
+        color: #E7D4C0; /* Match paragraph color - beige */
     }
     
     .filament-rich-content li::marker {
-        color: #0f4c7a !important;
+        color: #C99761 !important;
         font-weight: 600 !important;
     }
     
@@ -625,7 +630,7 @@
         line-height: 1.4 !important;
         margin-bottom: 0.5rem !important;
         text-align: justify;
-        color: #374151;
+        color: #E7D4C0;
     }
     
     /* Task list styling */
@@ -1029,7 +1034,7 @@ function courseData() {
             notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 ${
                 type === 'success' ? 'bg-green-500 text-white' : 
                 type === 'error' ? 'bg-red-500 text-white' : 
-                'bg-mountain-meadow-500 text-white'
+                'bg-gold-500 text-white'
             }`;
             notification.textContent = message;
             

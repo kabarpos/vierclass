@@ -18,8 +18,8 @@
         <!-- Styles & Scripts -->
         @vite(['resources/css/app.css', 'resources/css/custom.css', 'resources/js/app.js'])
     </head>
-    <body class="font-manrope antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-manrope antialiased bg-rebel-black-1000">
+        <div class="min-h-screen">
             <!-- Page Content -->
             <main>
                 @yield('content')
