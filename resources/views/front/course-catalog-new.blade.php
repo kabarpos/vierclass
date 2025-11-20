@@ -6,7 +6,12 @@
     <x-nav-guest />
     
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-charcoal-900 py-24 lg:py-32">
+    <section class="relative overflow-hidden py-24 lg:py-32">
+        <!-- Dark Red Combination Background - Same Formula as Hero -->
+        <div class="absolute inset-0 bg-gradient-to-br from-rebel-red-950/95 via-rebel-red-900/90 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-rebel-black-1000/70 via-transparent to-rebel-black-1000/80"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/40"></div>
+        
         <!-- Subtle Pattern -->
         <div class="absolute inset-0 opacity-5">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
@@ -59,14 +64,19 @@
     </section>
 
     <!-- All Courses Section -->
-    <section class="bg-beige-50 py-24 lg:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative overflow-hidden py-24 lg:py-32">
+        <!-- Dark Red RADIAL Combination Background -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rebel-red-950/95 via-rebel-red-900/70 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-rebel-black-1000/60 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/30"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             @if($allCourses->isNotEmpty())
                 <!-- Section Header -->
                 <div class="mb-16">
-                    <h2 class="text-3xl lg:text-4xl font-bold text-charcoal-800 mb-4">Semua Kajian Tersedia</h2>
-                    <p class="text-lg text-charcoal-600 max-w-2xl">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-beige-50 mb-4">Semua Kajian Tersedia</h2>
+                    <p class="text-lg text-beige-300 max-w-2xl">
                         Temukan kajian yang sesuai dengan minat dan kebutuhan spiritual Anda
                     </p>
                 </div>
@@ -85,8 +95,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-charcoal-800 mb-4">Belum Ada Kajian Tersedia</h3>
-                    <p class="text-charcoal-600 max-w-md mx-auto mb-8">
+                    <h3 class="text-2xl font-bold text-beige-50 mb-4">Belum Ada Kajian Tersedia</h3>
+                    <p class="text-beige-300 max-w-md mx-auto mb-8">
                         Kajian baru sedang dalam persiapan. Kembali lagi nanti untuk menemukan konten pembelajaran terbaru.
                     </p>
                     <a href="{{ route('front.index') }}" 
@@ -102,8 +112,13 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="bg-gradient-to-br from-charcoal-800 to-charcoal-900 py-24 lg:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative overflow-hidden py-24 lg:py-32">
+        <!-- Dark Red LINEAR Combination Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-rebel-red-950/95 via-rebel-red-900/90 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-rebel-black-1000/70 via-transparent to-rebel-black-1000/80"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/40"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-5xl font-bold text-beige-50 mb-6">Keunggulan Pembelajaran</h2>
                 <p class="text-lg text-beige-300 max-w-2xl mx-auto">

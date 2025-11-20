@@ -9,7 +9,7 @@
         <!-- Background Image -->
         <div class="absolute inset-0">
             <img 
-                src="#" 
+                src="https://driplab.b-cdn.net/tapsite-ai/assets/vier-019aa.webp" 
                 alt="Hero Background" 
                 class="w-full h-full object-cover"
                 loading="eager"
@@ -139,8 +139,13 @@
 
     <!-- Featured Courses Section -->
     @if($featuredCourses->isNotEmpty())
-    <section class="bg-gradient-to-b from-charcoal-900 to-charcoal-800 py-24 lg:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative overflow-hidden py-24 lg:py-32">
+        <!-- Dark Red Radial Combination Background - TEST -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rebel-red-950/95 via-rebel-red-900/70 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-rebel-black-1000/60 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/30"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-16 space-y-4">
                 <div class="inline-flex items-center space-x-2 px-4 py-2 bg-gold-100 rounded-full">
@@ -177,8 +182,13 @@
     @endif
 
     <!-- Testimonials/Values Section -->
-    <section class="bg-gradient-to-br from-charcoal-800 to-charcoal-900 py-24 lg:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative overflow-hidden py-24 lg:py-32">
+        <!-- Dark Red Combination Background - Same Formula as Hero -->
+        <div class="absolute inset-0 bg-gradient-to-br from-rebel-red-950/95 via-rebel-red-900/90 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-rebel-black-1000/70 via-transparent to-rebel-black-1000/80"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/40"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-5xl font-bold text-beige-50 mb-6">Nilai-Nilai Pembelajaran</h2>
                 <p class="text-lg text-beige-300 max-w-2xl mx-auto">

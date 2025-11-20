@@ -1,5 +1,10 @@
-<footer class="bg-charcoal-900 border-t border-charcoal-800 py-12 px-5">
-    <div class="max-w-6xl mx-auto">
+<footer class="relative border-t border-rebel-red-900/30 py-12 px-5 overflow-hidden">
+    <!-- Dark Red Radial Combination Background -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rebel-red-950/95 via-rebel-red-900/70 to-rebel-black-1000/95"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-rebel-black-1000/60 via-transparent to-transparent"></div>
+    <div class="absolute inset-0 bg-rebel-red-950/30"></div>
+    
+    <div class="relative max-w-6xl mx-auto">
         @php
             use App\Helpers\WebsiteSettingHelper;
         @endphp

@@ -20,8 +20,13 @@
     @endphp
     
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-charcoal-900 py-20 lg:py-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="relative overflow-hidden py-20 lg:py-28">
+        <!-- Dark Red LINEAR Combination Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-rebel-red-950/95 via-rebel-red-900/90 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-rebel-black-1000/70 via-transparent to-rebel-black-1000/80"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/40"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- Trust Badge -->
             <div class="inline-flex items-center space-x-2 px-4 py-2 bg-gold-600/10 border border-gold-600/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-8">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -41,8 +46,13 @@
     </section>
     
     <!-- Terms Content Section -->
-    <section class="bg-gradient-to-b from-charcoal-800 to-charcoal-900 py-20 lg:py-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative overflow-hidden py-20 lg:py-24">
+        <!-- Dark Red RADIAL Combination Background -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rebel-red-950/95 via-rebel-red-900/70 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-rebel-black-1000/60 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/30"></div>
+        
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="prose prose-lg max-w-none">
                 
                 <!-- Section 1: Pendahuluan -->

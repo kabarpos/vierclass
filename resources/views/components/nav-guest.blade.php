@@ -1,5 +1,10 @@
-<nav id="nav-guest" class="bg-charcoal-900/95 backdrop-blur-md border-b border-charcoal-800 shadow-lg sticky top-0 z-50" x-data="{ open: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<nav id="nav-guest" class="relative backdrop-blur-md border-b border-rebel-red-900/30 shadow-lg sticky top-0 z-50" x-data="{ open: false }">
+    <!-- Dark Red Radial Combination Background -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rebel-red-950/95 via-rebel-red-900/70 to-rebel-black-1000/95"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-rebel-black-1000/60 via-transparent to-transparent"></div>
+    <div class="absolute inset-0 bg-rebel-red-950/30"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <!-- Logo -->
             <div class="flex items-center">
@@ -48,8 +53,8 @@
     </div>
 
     <!-- Mobile menu -->
-    <div :class="{'block': open, 'hidden': !open}" class="hidden lg:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1 bg-charcoal-900 border-t border-charcoal-800">
+    <div :class="{'block': open, 'hidden': !open}" class="hidden lg:hidden relative">
+        <div class="px-2 pt-2 pb-3 space-y-1 border-t border-rebel-red-900/30">
             <a href="{{ route('front.index') }}" class="{{ request()->routeIs('front.index') ? 'bg-gold-600/20 text-gold-400 font-bold' : 'text-beige-200 hover:bg-charcoal-800 hover:text-gold-400 font-semibold' }} block px-3 py-2 rounded-md text-base transition-colors duration-300 cursor-pointer">
                 Beranda
             </a>

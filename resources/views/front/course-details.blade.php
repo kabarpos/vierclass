@@ -9,8 +9,13 @@
     @endauth
     
     <!-- Clean Hero Section -->
-    <section class="bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-charcoal-900 border-b border-charcoal-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <section class="relative overflow-hidden border-b border-rebel-red-900/30">
+        <!-- Dark Red LINEAR Combination Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-rebel-red-950/95 via-rebel-red-900/90 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-rebel-black-1000/70 via-transparent to-rebel-black-1000/80"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/40"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Course Information -->
                 <div class="space-y-8">
@@ -229,8 +234,13 @@
     </section>
         
     <!-- Main Content Section -->
-    <main class="bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-charcoal-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <main class="relative overflow-hidden">
+        <!-- Dark Red RADIAL Combination Background -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rebel-red-950/95 via-rebel-red-900/70 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-rebel-black-1000/60 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/30"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <!-- Course Content -->
                 <div class="lg:col-span-2 space-y-12">

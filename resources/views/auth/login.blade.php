@@ -3,8 +3,13 @@
 
 @section('content')
     <x-nav-guest/>
-    <main class="min-h-screen flex items-center justify-center py-12 px-5 bg-gradient-to-b from-charcoal-900 to-charcoal-800">
-        <section class="w-full max-w-lg">
+    <main class="relative min-h-screen flex items-center justify-center py-12 px-5 overflow-hidden">
+        <!-- Dark Red Combination Background - Same Formula as Hero -->
+        <div class="absolute inset-0 bg-gradient-to-br from-rebel-red-950/95 via-rebel-red-900/90 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-rebel-black-1000/70 via-transparent to-rebel-black-1000/80"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/40"></div>
+        
+        <section class="relative w-full max-w-lg">
             @if(session('success') || session('warning') || session('error'))
                 <div class="mb-4">
                     @if(session('success'))
