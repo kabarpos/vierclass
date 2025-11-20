@@ -10,51 +10,67 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8fafc;
-  color: #1f2937;
+  background: #000000;
+  background-attachment: fixed;
+  color: #fecaca;
+  min-height: 100vh;
 }
 
 @theme {
   --font-family-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
   
-  /* Islamic Thinker Brand Colors - Intellectual & Spiritual Palette */
-  --color-charcoal-50: #f5f5f5;
-  --color-charcoal-100: #e8e8e8;
-  --color-charcoal-200: #d1d1d1;
-  --color-charcoal-300: #a8a8a8;
-  --color-charcoal-400: #6b6b6b;
-  --color-charcoal-500: #4a4a4a;
-  --color-charcoal-600: #3a3a3a;
-  --color-charcoal-700: #2a2a2a;
-  --color-charcoal-800: #1a1a1a;
-  --color-charcoal-900: #0f0f0f;
-  --color-charcoal-950: #050505;
+  /* Rebel Black - PRIMARY Brand Background & Major Surfaces (50%) */
+  --color-rebel-black-50: #fafafa;
+  --color-rebel-black-100: #f5f5f5;
+  --color-rebel-black-200: #e5e5e5;
+  --color-rebel-black-300: #d4d4d4;
+  --color-rebel-black-400: #a3a3a3;
+  --color-rebel-black-500: #737373;
+  --color-rebel-black-600: #525252;
+  --color-rebel-black-700: #404040;
+  --color-rebel-black-800: #262626;
+  --color-rebel-black-900: #171717;
+  --color-rebel-black-950: #0a0a0a;
+  --color-rebel-black-1000: #000000;
 
-  /* Soft Beige - Calm & Scholarly */
-  --color-beige-50: #fafaf8;
-  --color-beige-100: #f5f1e8;
-  --color-beige-200: #ebe5d6;
-  --color-beige-300: #e0d9c4;
-  --color-beige-400: #d5cdb2;
-  --color-beige-500: #c4b99d;
-  --color-beige-600: #a89978;
-  --color-beige-700: #8c7a5d;
-  --color-beige-800: #6a5b45;
-  --color-beige-900: #4a3f2f;
-  --color-beige-950: #2d241c;
+  /* Rebel Red - HIGHLIGHTS & Important Elements (40%) - DOMINAN */
+  --color-rebel-red-50: #fef2f2;
+  --color-rebel-red-100: #fee2e2;
+  --color-rebel-red-200: #fecaca;
+  --color-rebel-red-300: #fca5a5;
+  --color-rebel-red-400: #f87171;
+  --color-rebel-red-500: #ef4444;
+  --color-rebel-red-600: #dc2626;
+  --color-rebel-red-700: #b91c1c;
+  --color-rebel-red-800: #991b1b;
+  --color-rebel-red-900: #7f1d1d;
+  --color-rebel-red-950: #450a0a;
 
-  /* Muted Gold - Wisdom & Authority */
-  --color-gold-50: #fdfbf3;
-  --color-gold-100: #faf5e1;
-  --color-gold-200: #f4e9c3;
-  --color-gold-300: #ead99f;
-  --color-gold-400: #ddc371;
-  --color-gold-500: #d1ae52;
-  --color-gold-600: #c9a961;
-  --color-gold-700: #b8985f;
-  --color-gold-800: #9a7d4e;
-  --color-gold-900: #7c6340;
-  --color-gold-950: #4d3d28;
+  /* Rebel Yellow - ACCENTS & Subtle Elements (10%) - MINIMAL */
+  --color-rebel-yellow-50: #fefce8;
+  --color-rebel-yellow-100: #fef9c3;
+  --color-rebel-yellow-200: #fef08a;
+  --color-rebel-yellow-300: #fde047;
+  --color-rebel-yellow-400: #facc15;
+  --color-rebel-yellow-500: #eab308;
+  --color-rebel-yellow-600: #ca8a04;
+  --color-rebel-yellow-700: #a16207;
+  --color-rebel-yellow-800: #854d0e;
+  --color-rebel-yellow-900: #713f12;
+  --color-rebel-yellow-950: #422006;
+
+  /* Pitch Black - Thick Borders & Strong Outlines */
+  --color-pitch-black-50: #f5f5f5;
+  --color-pitch-black-100: #e5e5e5;
+  --color-pitch-black-200: #cccccc;
+  --color-pitch-black-300: #b3b3b3;
+  --color-pitch-black-400: #808080;
+  --color-pitch-black-500: #4d4d4d;
+  --color-pitch-black-600: #333333;
+  --color-pitch-black-700: #1a1a1a;
+  --color-pitch-black-800: #0d0d0d;
+  --color-pitch-black-900: #000000;
+  --color-pitch-black-950: #000000;
 
   /* Mountain Meadow Brand Colors - Secondary/Legacy */
   --color-mountain-meadow-50: #edfcf6;
@@ -69,15 +85,53 @@ body {
   --color-mountain-meadow-900: #094b3e;
   --color-mountain-meadow-950: #042a24;
   
+  /* Backward Compatibility Aliases - Map to new rebellious palette */
+  --color-charcoal-50: var(--color-rebel-black-50);
+  --color-charcoal-100: var(--color-rebel-black-100);
+  --color-charcoal-200: var(--color-rebel-black-200);
+  --color-charcoal-300: var(--color-rebel-black-300);
+  --color-charcoal-400: var(--color-rebel-black-400);
+  --color-charcoal-500: var(--color-rebel-black-500);
+  --color-charcoal-600: var(--color-rebel-black-600);
+  --color-charcoal-700: var(--color-rebel-black-700);
+  --color-charcoal-800: var(--color-rebel-black-800);
+  --color-charcoal-900: var(--color-rebel-black-900);
+  --color-charcoal-950: var(--color-rebel-black-950);
+  
+  /* Map beige & gold to RED (Highlights - 40% DOMINAN) */
+  --color-beige-50: var(--color-rebel-red-50);
+  --color-beige-100: var(--color-rebel-red-100);
+  --color-beige-200: var(--color-rebel-red-200);
+  --color-beige-300: var(--color-rebel-red-300);
+  --color-beige-400: var(--color-rebel-red-400);
+  --color-beige-500: var(--color-rebel-red-500);
+  --color-beige-600: var(--color-rebel-red-600);
+  --color-beige-700: var(--color-rebel-red-700);
+  --color-beige-800: var(--color-rebel-red-800);
+  --color-beige-900: var(--color-rebel-red-900);
+  --color-beige-950: var(--color-rebel-red-950);
+  
+  --color-gold-50: var(--color-rebel-red-50);
+  --color-gold-100: var(--color-rebel-red-100);
+  --color-gold-200: var(--color-rebel-red-200);
+  --color-gold-300: var(--color-rebel-red-300);
+  --color-gold-400: var(--color-rebel-red-400);
+  --color-gold-500: var(--color-rebel-red-500);
+  --color-gold-600: var(--color-rebel-red-600);
+  --color-gold-700: var(--color-rebel-red-700);
+  --color-gold-800: var(--color-rebel-red-800);
+  --color-gold-900: var(--color-rebel-red-900);
+  --color-gold-950: var(--color-rebel-red-950);
+  
   /* Legacy LMS Colors for Backward Compatibility */
-  --color-LMS-green: var(--color-mountain-meadow-600);
-  --color-LMS-light-green: var(--color-mountain-meadow-50);
+  --color-LMS-green: var(--color-rebel-yellow-600);
+  --color-LMS-light-green: var(--color-rebel-yellow-50);
   --color-LMS-grey: #f3f4f6;
-  --color-LMS-text-secondary: #6b7280;
-  --color-LMS-text-grey: #9ca3af;
-  --color-LMS-red: #ef4444;
-  --color-LMS-light-red: #ffe3e1;
-  --color-LMS-black: #1f2937;
+  --color-LMS-text-secondary: var(--color-rebel-yellow-300);
+  --color-LMS-text-grey: var(--color-rebel-yellow-200);
+  --color-LMS-red: var(--color-rebel-red-600);
+  --color-LMS-light-red: var(--color-rebel-red-100);
+  --color-LMS-black: var(--color-pitch-black-900);
   
   /* Premium Spacing */
   --spacing-18: 4.5rem;
@@ -85,70 +139,113 @@ body {
   --spacing-28: 7rem;
   --spacing-32: 8rem;
   
-  /* Elevated Shadows - Premium & Cinematic */
-  --shadow-subtle: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-  --shadow-soft: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
-  --shadow-medium: 0 8px 24px 0 rgba(0, 0, 0, 0.12);
-  --shadow-elevated: 0 16px 48px 0 rgba(0, 0, 0, 0.16);
-  --shadow-cinematic: 0 24px 64px 0 rgba(0, 0, 0, 0.24);
+  /* Cinematic Shadows - Bold & Dramatic */
+  --shadow-subtle: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
+  --shadow-soft: 0 4px 16px 0 rgba(0, 0, 0, 0.35);
+  --shadow-medium: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  --shadow-elevated: 0 16px 56px 0 rgba(0, 0, 0, 0.55);
+  --shadow-cinematic: 0 24px 80px 0 rgba(0, 0, 0, 0.65);
+  --shadow-rebel-red: 0 8px 32px 0 rgba(220, 38, 38, 0.4);
+  --shadow-rebel-yellow: 0 8px 32px 0 rgba(250, 204, 21, 0.4);
   
-  /* Gradient overlays for depth */
-  --gradient-dark-overlay: linear-gradient(180deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.85) 100%);
-  --gradient-gold-shimmer: linear-gradient(135deg, #c9a961 0%, #b8985f 100%);
-  --gradient-beige-fade: linear-gradient(180deg, #fafaf8 0%, #f5f1e8 100%);
+  /* Red Highlight Gradients - Important Elements (40% DOMINAN) */
+  --gradient-red-highlight: linear-gradient(135deg, #DC2626 0%, #991b1b 100%);
+  --gradient-red-intense: linear-gradient(180deg, #DC2626 0%, #7f1d1d 100%);
+  --gradient-red-soft: linear-gradient(135deg, #fca5a5 0%, #ef4444 100%);
+  --gradient-red-bold: linear-gradient(135deg, #f87171 0%, #b91c1c 100%);
   
-  /* Modern border radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-3xl: 2rem;
+  /* Yellow Accent Gradients - Subtle Elements (10% MINIMAL) */
+  --gradient-yellow-accent: linear-gradient(135deg, #FACC15 0%, #eab308 100%);
+  --gradient-yellow-subtle: linear-gradient(135deg, #FEF08A 0%, #ca8a04 100%);
+  
+  /* Red-Yellow Combination */
+  --gradient-red-yellow-clash: linear-gradient(135deg, #DC2626 0%, #FACC15 100%);
+  
+  /* Black Dominant Gradients - PRIMARY Backgrounds */
+  --gradient-black-base: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #171717 100%);
+  --gradient-black-subtle: linear-gradient(180deg, #000000 0%, #171717 50%, #262626 100%);
+  --gradient-black-vertical: linear-gradient(180deg, #0a0a0a 0%, #171717 50%, #262626 100%);
+  --gradient-black-radial: radial-gradient(circle at center, #262626 0%, #000000 100%);
+  
+  /* Black-Red Combination Gradients - Highlight Combinations (40% DOMINAN) */
+  --gradient-black-to-red: linear-gradient(135deg, #000000 0%, #0a0a0a 30%, #450a0a 60%, #991b1b 85%, #DC2626 100%);
+  --gradient-black-red-vertical: linear-gradient(180deg, #000000 0%, #171717 40%, #7f1d1d 70%, #DC2626 100%);
+  --gradient-red-to-black: linear-gradient(135deg, #DC2626 0%, #b91c1c 20%, #7f1d1d 50%, #171717 80%, #000000 100%);
+  --gradient-black-red-radial: radial-gradient(circle at center, #7f1d1d 0%, #171717 50%, #000000 100%);
+  --gradient-black-red-diagonal: linear-gradient(45deg, #000000 0%, #0a0a0a 20%, #450a0a 50%, #991b1b 75%, #DC2626 90%, #f87171 100%);
+  --gradient-black-red-soft: linear-gradient(135deg, #0a0a0a 0%, #171717 40%, #7f1d1d 70%, #DC2626 100%);
+  --gradient-black-red-intense: linear-gradient(180deg, #000000 0%, #171717 30%, #450a0a 60%, #DC2626 100%);
+  
+  /* Black-Yellow Combination Gradients - Accent Touches (10% MINIMAL) */
+  --gradient-black-to-yellow: linear-gradient(135deg, #000000 0%, #171717 75%, #854d0e 92%, #FACC15 100%);
+  --gradient-black-yellow-soft: linear-gradient(180deg, #000000 0%, #0a0a0a 85%, #ca8a04 97%, #FACC15 100%);
+  
+  /* Overlay Gradients */
+  --gradient-dark-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 100%);
+  --gradient-red-overlay: linear-gradient(180deg, rgba(220, 38, 38, 0.95) 0%, rgba(127, 29, 29, 0.85) 100%);
+  --gradient-black-red-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(127, 29, 29, 0.9) 100%);
+  --gradient-yellow-overlay: linear-gradient(180deg, rgba(250, 204, 21, 0.9) 0%, rgba(202, 138, 4, 0.9) 100%);
+  
+  /* Sharp Border Radius - Comic-like Structure */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  
+  /* Thick Borders - Strong Separation */
+  --border-thin: 2px;
+  --border-medium: 3px;
+  --border-thick: 4px;
+  --border-ultra: 6px;
 }
 
-/* TipTap Rich Editor Extensions Styling */
+/* TipTap Rich Editor Extensions Styling - Rebellious Theme */
 /* Admin Panel CodeBlock Styling */
 .fi-fo-rich-editor pre {
     position: relative;
     margin: 1rem 0;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     overflow: hidden;
-    background: #1a1b26 !important;
-    border: 1px solid #374151;
+    background: #000000 !important;
+    border: 3px solid #FACC15;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
 }
 
 .fi-fo-rich-editor pre code {
     display: block;
-    padding: 1rem !important;
+    padding: 1.25rem !important;
     font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace !important;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.6;
     overflow-x: auto;
     background: transparent !important;
-    color: #9aa5ce;
+    color: #FEF08A;
 }
 
-/* Admin Panel YouTube Embed */
+/* Admin Panel YouTube Embed - Rebellious Frame */
 .fi-fo-rich-editor .youtube-embed,
 .fi-fo-rich-editor iframe[src*="youtube"] {
     width: 100%;
     max-width: 100%;
     height: auto;
     aspect-ratio: 16/9;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     margin: 1rem 0;
-    border: 1px solid #e5e7eb;
+    border: 4px solid #000000;
+    box-shadow: 0 8px 32px 0 rgba(220, 38, 38, 0.4);
 }
 
-/* TipTap YouTube Button Styling */
+/* TipTap YouTube Button Styling - Rebellious UI */
 .tiptap-toolbar-button {
-    @apply inline-flex items-center justify-center w-8 h-8 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors;
+    @apply inline-flex items-center justify-center w-8 h-8 text-rebel-yellow-400 hover:text-rebel-yellow-200 hover:bg-rebel-red-900 rounded transition-colors border-2 border-transparent;
 }
 
 .tiptap-toolbar-button:hover {
-    @apply bg-gray-100 text-gray-700;
+    @apply bg-rebel-red-800 text-rebel-yellow-200 border-rebel-yellow-600;
 }
 
 .tiptap-toolbar-button.is-active {
-    @apply bg-gray-200 text-gray-900;
+    @apply bg-pitch-black-900 text-rebel-yellow-400 border-rebel-yellow-500;
 }

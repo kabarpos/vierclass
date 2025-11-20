@@ -1,26 +1,38 @@
 @extends('front.layouts.app')
-@section('title', \App\Helpers\WebsiteSettingHelper::get('site_name', 'LMS Platform') . ' - Pemikir, Sejarawan, Trainer')
+@section('title', \App\Helpers\WebsiteSettingHelper::get('site_name', 'Vieral.ID') . ' - Pemikir, Sejarawan, Trainer')
 @section('content')
     
     <x-nav-guest />
     
-    <!-- Hero Section - Premium & Cinematic -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-charcoal-800 via-charcoal-700 to-charcoal-800 min-h-screen flex items-center">
-        <!-- Subtle Islamic Geometric Pattern Background -->
+    <!-- Hero Section - Premium & Cinematic with Background Image -->
+    <section class="relative overflow-hidden min-h-screen flex items-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img 
+                src="#" 
+                alt="Hero Background" 
+                class="w-full h-full object-cover"
+                loading="eager"
+            />
+        </div>
+        
+        <!-- Dark Red Professional Overlay - Triple Layer -->
+        <div class="absolute inset-0 bg-gradient-to-br from-rebel-red-950/95 via-rebel-red-900/90 to-rebel-black-1000/95"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-rebel-black-1000/70 via-transparent to-rebel-black-1000/80"></div>
+        <div class="absolute inset-0 bg-rebel-red-950/40"></div>
+        
+        <!-- Subtle Islamic Geometric Pattern Overlay -->
         <div class="absolute inset-0 opacity-5">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
                 <defs>
                     <pattern id="islamic-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                        <path d="M50 0L100 50L50 100L0 50Z" fill="none" stroke="currentColor" stroke-width="0.5" class="text-gold-500"/>
-                        <circle cx="50" cy="50" r="8" fill="none" stroke="currentColor" stroke-width="0.5" class="text-gold-500"/>
+                        <path d="M50 0L100 50L50 100L0 50Z" fill="none" stroke="currentColor" stroke-width="0.5" class="text-rebel-red-400"/>
+                        <circle cx="50" cy="50" r="8" fill="none" stroke="currentColor" stroke-width="0.5" class="text-rebel-red-400"/>
                     </pattern>
                 </defs>
                 <rect width="800" height="800" fill="url(#islamic-pattern)"/>
             </svg>
         </div>
-        
-        <!-- Gradient Overlay for Depth -->
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-charcoal-800/50 to-charcoal-900"></div>
         
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
