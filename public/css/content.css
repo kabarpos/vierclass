@@ -1,0 +1,328 @@
+.content-ebook h3 {
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+}
+
+.content-ebook p,
+.content-ebook h3,
+.content-ebook img,
+.content-ebook ul,
+.content-ebook ol,
+.content-ebook pre {
+    margin-bottom: 20px;
+}
+
+.content-ebook a {
+    color: blue;
+}
+
+.content-ebook figcaption {
+    display: none;
+}
+
+.content-ebook ol {
+    list-style: number;
+    margin-left: 20px;
+}
+
+.content-ebook ul {
+    list-style: circle;
+    margin-left: 20px;
+}
+
+.content-ebook span {
+    font-size: 14px;
+}
+
+.content-ebook li {
+    padding-bottom: 14px;
+}
+
+.content-ebook p {
+    line-height: 28px;
+    font-size: 16px;
+}
+
+.theme-tokyo-night-dark code {
+    padding:20px !important;
+}
+
+.theme-tokyo-night-dark {
+    /*!
+  Theme: Tokyo-night-Dark
+  origin: https://github.com/enkia/tokyo-night-vscode-theme
+  Description: Original highlight.js style
+  Author: (c) Henri Vandersleyen <hvandersleyen@gmail.com>
+  License: see project LICENSE
+  Touched: 2022
+*/
+}
+
+.theme-tokyo-night-dark code {
+    border-radius: 16px !important;
+
+}
+.theme-tokyo-night-dark pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em
+}
+
+.theme-tokyo-night-dark code.hljs {
+    padding: 3px 5px
+}
+
+.theme-tokyo-night-dark .hljs-comment,.theme-tokyo-night-dark .hljs-meta {
+    color: #565f89
+}
+
+.theme-tokyo-night-dark .hljs-deletion,.theme-tokyo-night-dark .hljs-doctag,.theme-tokyo-night-dark .hljs-regexp,.theme-tokyo-night-dark .hljs-selector-attr,.theme-tokyo-night-dark .hljs-selector-class,.theme-tokyo-night-dark .hljs-selector-id,.theme-tokyo-night-dark .hljs-selector-pseudo,.theme-tokyo-night-dark .hljs-tag,.theme-tokyo-night-dark .hljs-template-tag,.theme-tokyo-night-dark .hljs-variable.language_ {
+    color: #f7768e
+}
+
+.theme-tokyo-night-dark .hljs-link,.theme-tokyo-night-dark .hljs-literal,.theme-tokyo-night-dark .hljs-number,.theme-tokyo-night-dark .hljs-params,.theme-tokyo-night-dark .hljs-template-variable,.theme-tokyo-night-dark .hljs-type,.theme-tokyo-night-dark .hljs-variable {
+    color: #ff9e64
+}
+
+.theme-tokyo-night-dark .hljs-attribute,.theme-tokyo-night-dark .hljs-built_in {
+    color: #e0af68
+}
+
+.theme-tokyo-night-dark .hljs-selector-tag {
+    color: #2ac3de
+}
+
+.theme-tokyo-night-dark .hljs-keyword,.theme-tokyo-night-dark .hljs-property,.theme-tokyo-night-dark .hljs-subst,.theme-tokyo-night-dark .hljs-title,.theme-tokyo-night-dark .hljs-title.class_,.theme-tokyo-night-dark .hljs-title.class_.inherited__,.theme-tokyo-night-dark .hljs-title.function_ {
+    color: #7dcfff
+}
+
+.theme-tokyo-night-dark .hljs-selector-tag {
+    color: #73daca
+}
+
+.theme-tokyo-night-dark .hljs-addition,.theme-tokyo-night-dark .hljs-bullet,.theme-tokyo-night-dark .hljs-quote,.theme-tokyo-night-dark .hljs-string,.theme-tokyo-night-dark .hljs-symbol {
+    color: #9ece6a
+}
+
+.theme-tokyo-night-dark .hljs-code,.theme-tokyo-night-dark .hljs-formula,.theme-tokyo-night-dark .hljs-section {
+    color: #7aa2f7
+}
+
+.theme-tokyo-night-dark .hljs-attr,.theme-tokyo-night-dark .hljs-char.escape_,.theme-tokyo-night-dark .hljs-keyword,.theme-tokyo-night-dark .hljs-name,.theme-tokyo-night-dark .hljs-operator {
+    color: #bb9af7
+}
+
+.theme-tokyo-night-dark .hljs-punctuation {
+    color: #c0caf5
+}
+
+.theme-tokyo-night-dark .hljs {
+    background: #1a1b26;
+    color: #9aa5ce
+}
+
+.theme-tokyo-night-dark .hljs-emphasis {
+    font-style: italic
+}
+
+.theme-tokyo-night-dark .hljs-strong {
+    font-weight: 700
+}
+
+.theme-tokyo-night-dark-min {
+    /*!
+  Theme: Tokyo-night-Dark
+  origin: https://github.com/enkia/tokyo-night-vscode-theme
+  Description: Original highlight.js style
+  Author: (c) Henri Vandersleyen <hvandersleyen@gmail.com>
+  License: see project LICENSE
+  Touched: 2022
+*/
+}
+
+.theme-tokyo-night-dark-min pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em
+}
+
+.theme-tokyo-night-dark-min code.hljs {
+    padding: 3px 5px
+}
+
+.theme-tokyo-night-dark-min .hljs-comment,.theme-tokyo-night-dark-min .hljs-meta {
+    color: #565f89
+}
+
+.theme-tokyo-night-dark-min .hljs-deletion,.theme-tokyo-night-dark-min .hljs-doctag,.theme-tokyo-night-dark-min .hljs-regexp,.theme-tokyo-night-dark-min .hljs-selector-attr,.theme-tokyo-night-dark-min .hljs-selector-class,.theme-tokyo-night-dark-min .hljs-selector-id,.theme-tokyo-night-dark-min .hljs-selector-pseudo,.theme-tokyo-night-dark-min .hljs-tag,.theme-tokyo-night-dark-min .hljs-template-tag,.theme-tokyo-night-dark-min .hljs-variable.language_ {
+    color: #f7768e
+}
+
+.theme-tokyo-night-dark-min .hljs-link,.theme-tokyo-night-dark-min .hljs-literal,.theme-tokyo-night-dark-min .hljs-number,.theme-tokyo-night-dark-min .hljs-params,.theme-tokyo-night-dark-min .hljs-template-variable,.theme-tokyo-night-dark-min .hljs-type,.theme-tokyo-night-dark-min .hljs-variable {
+    color: #ff9e64
+}
+
+.theme-tokyo-night-dark-min .hljs-attribute,.theme-tokyo-night-dark-min .hljs-built_in {
+    color: #e0af68
+}
+
+.theme-tokyo-night-dark-min .hljs-keyword,.theme-tokyo-night-dark-min .hljs-property,.theme-tokyo-night-dark-min .hljs-subst,.theme-tokyo-night-dark-min .hljs-title,.theme-tokyo-night-dark-min .hljs-title.class_,.theme-tokyo-night-dark-min .hljs-title.class_.inherited__,.theme-tokyo-night-dark-min .hljs-title.function_ {
+    color: #7dcfff
+}
+
+.theme-tokyo-night-dark-min .hljs-selector-tag {
+    color: #73daca
+}
+
+.theme-tokyo-night-dark-min .hljs-addition,.theme-tokyo-night-dark-min .hljs-bullet,.theme-tokyo-night-dark-min .hljs-quote,.theme-tokyo-night-dark-min .hljs-string,.theme-tokyo-night-dark-min .hljs-symbol {
+    color: #9ece6a
+}
+
+.theme-tokyo-night-dark-min .hljs-code,.theme-tokyo-night-dark-min .hljs-formula,.theme-tokyo-night-dark-min .hljs-section {
+    color: #7aa2f7
+}
+
+.theme-tokyo-night-dark-min .hljs-attr,.theme-tokyo-night-dark-min .hljs-char.escape_,.theme-tokyo-night-dark-min .hljs-keyword,.theme-tokyo-night-dark-min .hljs-name,.theme-tokyo-night-dark-min .hljs-operator {
+    color: #bb9af7
+}
+
+.theme-tokyo-night-dark-min .hljs-punctuation {
+    color: #c0caf5
+}
+
+.theme-tokyo-night-dark-min .hljs {
+    background: #1a1b26;
+    color: #9aa5ce
+}
+
+.theme-tokyo-night-dark-min .hljs-emphasis {
+    font-style: italic
+}
+
+.theme-tokyo-night-dark-min .hljs-strong {
+    font-weight: 700
+}
+
+/* Enhanced CodeBlock Styling for TipTap */
+.filament-rich-content pre {
+    position: relative;
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1a1b26;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.filament-rich-content pre code {
+    display: block;
+    padding: 1.5rem !important;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: auto;
+    background: #1a1b26;
+    color: #9aa5ce;
+}
+
+.filament-rich-content pre::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #7aa2f7, #bb9af7, #f7768e);
+}
+
+/* Language label for code blocks */
+.filament-rich-content pre[data-language]::after {
+    content: attr(data-language);
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: rgba(122, 162, 247, 0.2);
+    color: #7aa2f7;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* YouTube Embed Styling */
+.filament-rich-content .youtube-embed,
+.filament-rich-content iframe[src*="youtube"] {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+/* Responsive YouTube embed */
+.filament-rich-content .youtube-embed-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    margin: 2rem 0;
+}
+
+.filament-rich-content .youtube-embed-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced inline code styling */
+.filament-rich-content code:not(pre code) {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 0.25rem 0.375rem;
+    border-radius: 0.375rem;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
+    font-size: 0.875em;
+    font-weight: 500;
+    border: 1px solid #e2e8f0;
+}
+
+/* Dark mode inline code */
+@media (prefers-color-scheme: dark) {
+    .filament-rich-content code:not(pre code) {
+        background: #334155;
+        color: #cbd5e1;
+        border-color: #475569;
+    }
+}
+
+/* Copy button for code blocks (optional enhancement) */
+.filament-rich-content pre:hover::before {
+    opacity: 0.8;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .filament-rich-content pre {
+        margin: 1.5rem -1rem;
+        border-radius: 0;
+    }
+    
+    .filament-rich-content pre code {
+        padding: 1rem !important;
+        font-size: 13px;
+    }
+    
+    .filament-rich-content .youtube-embed,
+    .filament-rich-content iframe[src*="youtube"] {
+        margin: 1.5rem -1rem;
+        border-radius: 0;
+    }
+}

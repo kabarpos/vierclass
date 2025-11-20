@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@source "../../resources/views/**/*.blade.php";
+@source "../../app/Filament/**/*.php";
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+
+/* Hapus pemaksaan font global agar kembali ke standar Tailwind/proyek */
+/* Gunakan pengaturan font melalui utilitas Tailwind atau variabel tema saja */
+/* Body styling yang ringan (tanpa override font) */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #1f2937;
+}
+
+@theme {
+  --font-family-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Islamic Thinker Brand Colors - Intellectual & Spiritual Palette */
+  --color-charcoal-50: #f5f5f5;
+  --color-charcoal-100: #e8e8e8;
+  --color-charcoal-200: #d1d1d1;
+  --color-charcoal-300: #a8a8a8;
+  --color-charcoal-400: #6b6b6b;
+  --color-charcoal-500: #4a4a4a;
+  --color-charcoal-600: #3a3a3a;
+  --color-charcoal-700: #2a2a2a;
+  --color-charcoal-800: #1a1a1a;
+  --color-charcoal-900: #0f0f0f;
+  --color-charcoal-950: #050505;
+
+  /* Soft Beige - Calm & Scholarly */
+  --color-beige-50: #fafaf8;
+  --color-beige-100: #f5f1e8;
+  --color-beige-200: #ebe5d6;
+  --color-beige-300: #e0d9c4;
+  --color-beige-400: #d5cdb2;
+  --color-beige-500: #c4b99d;
+  --color-beige-600: #a89978;
+  --color-beige-700: #8c7a5d;
+  --color-beige-800: #6a5b45;
+  --color-beige-900: #4a3f2f;
+  --color-beige-950: #2d241c;
+
+  /* Muted Gold - Wisdom & Authority */
+  --color-gold-50: #fdfbf3;
+  --color-gold-100: #faf5e1;
+  --color-gold-200: #f4e9c3;
+  --color-gold-300: #ead99f;
+  --color-gold-400: #ddc371;
+  --color-gold-500: #d1ae52;
+  --color-gold-600: #c9a961;
+  --color-gold-700: #b8985f;
+  --color-gold-800: #9a7d4e;
+  --color-gold-900: #7c6340;
+  --color-gold-950: #4d3d28;
+
+  /* Mountain Meadow Brand Colors - Secondary/Legacy */
+  --color-mountain-meadow-50: #edfcf6;
+  --color-mountain-meadow-100: #d3f8e8;
+  --color-mountain-meadow-200: #abefd5;
+  --color-mountain-meadow-300: #74e1bf;
+  --color-mountain-meadow-400: #31ba93;
+  --color-mountain-meadow-500: #18b18a;
+  --color-mountain-meadow-600: #0c8f70;
+  --color-mountain-meadow-700: #09735d;
+  --color-mountain-meadow-800: #0a5b4a;
+  --color-mountain-meadow-900: #094b3e;
+  --color-mountain-meadow-950: #042a24;
+  
+  /* Legacy LMS Colors for Backward Compatibility */
+  --color-LMS-green: var(--color-mountain-meadow-600);
+  --color-LMS-light-green: var(--color-mountain-meadow-50);
+  --color-LMS-grey: #f3f4f6;
+  --color-LMS-text-secondary: #6b7280;
+  --color-LMS-text-grey: #9ca3af;
+  --color-LMS-red: #ef4444;
+  --color-LMS-light-red: #ffe3e1;
+  --color-LMS-black: #1f2937;
+  
+  /* Premium Spacing */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-28: 7rem;
+  --spacing-32: 8rem;
+  
+  /* Elevated Shadows - Premium & Cinematic */
+  --shadow-subtle: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 8px 24px 0 rgba(0, 0, 0, 0.12);
+  --shadow-elevated: 0 16px 48px 0 rgba(0, 0, 0, 0.16);
+  --shadow-cinematic: 0 24px 64px 0 rgba(0, 0, 0, 0.24);
+  
+  /* Gradient overlays for depth */
+  --gradient-dark-overlay: linear-gradient(180deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.85) 100%);
+  --gradient-gold-shimmer: linear-gradient(135deg, #c9a961 0%, #b8985f 100%);
+  --gradient-beige-fade: linear-gradient(180deg, #fafaf8 0%, #f5f1e8 100%);
+  
+  /* Modern border radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+}
+
+/* TipTap Rich Editor Extensions Styling */
+/* Admin Panel CodeBlock Styling */
+.fi-fo-rich-editor pre {
+    position: relative;
+    margin: 1rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #1a1b26 !important;
+    border: 1px solid #374151;
+}
+
+.fi-fo-rich-editor pre code {
+    display: block;
+    padding: 1rem !important;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace !important;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-x: auto;
+    background: transparent !important;
+    color: #9aa5ce;
+}
+
+/* Admin Panel YouTube Embed */
+.fi-fo-rich-editor .youtube-embed,
+.fi-fo-rich-editor iframe[src*="youtube"] {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 1px solid #e5e7eb;
+}
+
+/* TipTap YouTube Button Styling */
+.tiptap-toolbar-button {
+    @apply inline-flex items-center justify-center w-8 h-8 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors;
+}
+
+.tiptap-toolbar-button:hover {
+    @apply bg-gray-100 text-gray-700;
+}
+
+.tiptap-toolbar-button.is-active {
+    @apply bg-gray-200 text-gray-900;
+}

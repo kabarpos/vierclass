@@ -1,0 +1,161 @@
+{
+  "tasks": [
+    {
+      "id": "fcf8e10e-5b28-431c-8656-eb37945a355b",
+      "name": "Perbaiki Script Loading dan Event Handling Midtrans",
+      "description": "Memperbaiki race condition antara script loading Midtrans dan event handling Livewire yang menyebabkan popup tidak muncul. Implementasi robust script loading mechanism dengan proper error handling.",
+      "notes": "Fokus pada file payment-form.blade.php yang sudah ada, jangan buat file baru. Pastikan kompatibilitas dengan Livewire 3.",
+      "status": "completed",
+      "dependencies": [],
+      "createdAt": "2025-09-13T18:18:13.915Z",
+      "updatedAt": "2025-09-13T18:20:33.993Z",
+      "relatedFiles": [
+        {
+          "path": "resources/views/livewire/payment/payment-form.blade.php",
+          "type": "TO_MODIFY",
+          "description": "File utama yang berisi JavaScript event handling",
+          "lineStart": 70,
+          "lineEnd": 132
+        }
+      ],
+      "implementationGuide": "1. Buat MidtransManager object di window untuk mengelola script loading\n2. Implementasi async script loading dengan Promise\n3. Tambahkan validation untuk window.snap object\n4. Update event listener 'payment-ready' dengan proper error handling\n5. Tambahkan fallback mechanism jika script gagal dimuat\n\nPseudocode:\n```javascript\nwindow.MidtransManager = {\n    isScriptLoaded: false,\n    loadPromise: null,\n    async ensureScriptLoaded() {\n        if (this.isScriptLoaded) return true;\n        // Create script element with proper error handling\n        // Return Promise that resolves when script loaded\n    },\n    async openPayment(snapToken) {\n        await this.ensureScriptLoaded();\n        if (!window.snap) throw new Error('Midtrans not available');\n        window.snap.pay(snapToken, callbacks);\n    }\n};\n```",
+      "verificationCriteria": "1. Script Midtrans berhasil dimuat tanpa error\n2. Event 'payment-ready' berjalan dengan proper error handling\n3. Popup Midtrans muncul saat tombol pembayaran diklik\n4. Tidak ada race condition antara script loading dan event dispatch\n5. Error handling yang informatif untuk user",
+      "analysisResult": "Tujuan utama adalah memperbaiki masalah popup pembayaran Midtrans yang tidak muncul pada aplikasi Laravel 12 dengan Livewire 3. Root cause utama adalah race condition antara script loading dan event handling, serta inconsistent configuration management. Solusi harus mengikuti arsitektur existing project dengan Repository Pattern dan best practices Laravel/Livewire.",
+      "summary": "Task berhasil diselesaikan dengan implementasi MidtransManager yang komprehensif. Perbaikan meliputi: 1) Membuat object MidtransManager dengan state management yang proper untuk tracking script loading dan initialization, 2) Implementasi async script loading dengan polling mechanism (50 attempts x 100ms = 5 detik timeout) untuk memastikan window.snap tersedia sebelum digunakan, 3) Perbaikan event listener dengan proper error handling dan logging yang detail, 4) Menambahkan method debugging (getStatus, reset) untuk troubleshooting, 5) Implementasi robust error handling dengan user-friendly error messages, 6) Mempertahankan semua fungsi existing seperti showToast dengan icon yang sesuai. Solusi ini mengatasi race condition antara script loading dan event handling, serta memberikan feedback yang jelas kepada user jika terjadi masalah.",
+      "completedAt": "2025-09-13T18:20:33.991Z"
+    },
+    {
+      "id": "4d9a8a99-fca3-4fd5-9b99-0b83885b3897",
+      "name": "Standardisasi Konfigurasi Client Key Midtrans",
+      "description": "Menyatukan sumber konfigurasi client key Midtrans yang saat ini tersebar di berbagai tempat, membuat single source of truth untuk konfigurasi.",
+      "notes": "Pastikan konsistensi antara backend dan frontend configuration. Gunakan PaymentSetting sebagai primary source.",
+      "status": "pending",
+      "dependencies": [],
+      "createdAt": "2025-09-13T18:18:13.915Z",
+      "updatedAt": "2025-09-13T18:18:13.915Z",
+      "relatedFiles": [
+        {
+          "path": "app/Http/Controllers/Landing/PaymentController.php",
+          "type": "TO_MODIFY",
+          "description": "Controller yang mengelola payment process",
+          "lineStart": 30,
+          "lineEnd": 40
+        },
+        {
+          "path": "resources/views/livewire/payment/payment-form.blade.php",
+          "type": "TO_MODIFY",
+          "description": "View yang menggunakan client key",
+          "lineStart": 1,
+          "lineEnd": 20
+        }
+      ],
+      "implementationGuide": "1. Update PaymentController untuk menggunakan sumber konfigurasi yang konsisten\n2. Pastikan client key yang dikirim ke frontend sama dengan yang digunakan di backend\n3. Tambahkan validation untuk memastikan client key tersedia\n4. Update view untuk menggunakan client key yang konsisten\n\nPseudocode:\n```php\n// Di PaymentController\n$gateway = PaymentSetting::where('type', 'payment_gateway')\n    ->where('is_active', true)->first();\n$clientKey = $gateway->config['client_key'] ?? config('midtrans.clientKey');\nif (!$clientKey) throw new Exception('Client key not configured');\n\n// Pass ke view dengan validation\nreturn view('payment.index', compact('clientKey'));\n```",
+      "verificationCriteria": "1. Client key konsisten antara backend dan frontend\n2. Tidak ada hardcoded client key di multiple places\n3. Proper error handling jika client key tidak tersedia\n4. Configuration bersumber dari PaymentSetting database",
+      "analysisResult": "Tujuan utama adalah memperbaiki masalah popup pembayaran Midtrans yang tidak muncul pada aplikasi Laravel 12 dengan Livewire 3. Root cause utama adalah race condition antara script loading dan event handling, serta inconsistent configuration management. Solusi harus mengikuti arsitektur existing project dengan Repository Pattern dan best practices Laravel/Livewire."
+    },
+    {
+      "id": "9a5efe93-445e-4cd8-91f0-f2feb419edad",
+      "name": "Implementasi Robust Error Handling dan User Feedback",
+      "description": "Menambahkan comprehensive error handling untuk semua skenario pembayaran dan memberikan feedback yang jelas kepada user saat terjadi masalah.",
+      "notes": "Fokus pada user experience yang baik dengan error messages yang informatif tapi tidak technical.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "fcf8e10e-5b28-431c-8656-eb37945a355b"
+        }
+      ],
+      "createdAt": "2025-09-13T18:18:13.915Z",
+      "updatedAt": "2025-09-13T18:18:13.915Z",
+      "relatedFiles": [
+        {
+          "path": "app/Livewire/Payment/PaymentForm.php",
+          "type": "TO_MODIFY",
+          "description": "Livewire component untuk payment processing",
+          "lineStart": 25,
+          "lineEnd": 96
+        },
+        {
+          "path": "resources/views/livewire/payment/payment-form.blade.php",
+          "type": "TO_MODIFY",
+          "description": "View dengan error handling UI",
+          "lineStart": 40,
+          "lineEnd": 70
+        }
+      ],
+      "implementationGuide": "1. Update Livewire component untuk menangani berbagai error states\n2. Tambahkan proper loading states dan error messages\n3. Implementasi retry mechanism untuk failed payments\n4. Tambahkan logging untuk debugging\n\nPseudocode:\n```php\n// Di PaymentForm.php\npublic function processPayment() {\n    try {\n        $this->isProcessing = true;\n        // Process payment logic\n        $this->dispatch('payment-ready', ['snapToken' => $snapToken]);\n    } catch (Exception $e) {\n        $this->isProcessing = false;\n        $this->dispatch('payment-error', ['message' => $e->getMessage()]);\n        Log::error('Payment processing failed', ['error' => $e->getMessage()]);\n    }\n}\n\npublic function onPaymentError($result) {\n    $this->isProcessing = false;\n    // Show user-friendly error message\n}\n```",
+      "verificationCriteria": "1. Error messages yang user-friendly ditampilkan\n2. Loading states berfungsi dengan benar\n3. Retry mechanism tersedia untuk failed payments\n4. Comprehensive logging untuk debugging\n5. User tidak stuck di loading state",
+      "analysisResult": "Tujuan utama adalah memperbaiki masalah popup pembayaran Midtrans yang tidak muncul pada aplikasi Laravel 12 dengan Livewire 3. Root cause utama adalah race condition antara script loading dan event handling, serta inconsistent configuration management. Solusi harus mengikuti arsitektur existing project dengan Repository Pattern dan best practices Laravel/Livewire."
+    },
+    {
+      "id": "49ee0f29-e375-41de-bba8-9f8758165c01",
+      "name": "Testing dan Validasi End-to-End Payment Flow",
+      "description": "Melakukan testing komprehensif untuk memastikan seluruh flow pembayaran berjalan dengan benar dari awal hingga akhir, termasuk testing di berbagai skenario.",
+      "notes": "Gunakan halaman /test-payment-debug yang sudah ada untuk testing. Pastikan semua scenarios covered.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "fcf8e10e-5b28-431c-8656-eb37945a355b"
+        },
+        {
+          "taskId": "4d9a8a99-fca3-4fd5-9b99-0b83885b3897"
+        },
+        {
+          "taskId": "9a5efe93-445e-4cd8-91f0-f2feb419edad"
+        }
+      ],
+      "createdAt": "2025-09-13T18:18:13.915Z",
+      "updatedAt": "2025-09-13T18:18:13.915Z",
+      "relatedFiles": [
+        {
+          "path": "resources/views/test-payment-debug.blade.php",
+          "type": "REFERENCE",
+          "description": "Halaman debug untuk testing payment flow"
+        },
+        {
+          "path": "routes/web.php",
+          "type": "REFERENCE",
+          "description": "Routes untuk testing endpoints",
+          "lineStart": 370,
+          "lineEnd": 380
+        }
+      ],
+      "implementationGuide": "1. Test manual payment flow dari cart hingga success\n2. Test berbagai error scenarios (network error, invalid token, etc)\n3. Validasi popup Midtrans muncul dengan benar\n4. Test callback handling (success, pending, error, close)\n5. Verifikasi transaction record tersimpan dengan benar\n\nTesting Scenarios:\n```\n1. Happy Path: Cart → Checkout → Payment → Success\n2. Error Scenarios:\n   - Network timeout\n   - Invalid snap token\n   - User closes popup\n   - Payment declined\n3. Edge Cases:\n   - Multiple rapid clicks\n   - Browser refresh during payment\n   - Script loading failure\n```",
+      "verificationCriteria": "1. Payment popup muncul tanpa error\n2. Semua callback scenarios berfungsi (success, pending, error, close)\n3. Transaction records tersimpan dengan benar\n4. Error handling berfungsi di semua scenarios\n5. User experience smooth dari awal hingga akhir\n6. Tidak ada JavaScript errors di browser console",
+      "analysisResult": "Tujuan utama adalah memperbaiki masalah popup pembayaran Midtrans yang tidak muncul pada aplikasi Laravel 12 dengan Livewire 3. Root cause utama adalah race condition antara script loading dan event handling, serta inconsistent configuration management. Solusi harus mengikuti arsitektur existing project dengan Repository Pattern dan best practices Laravel/Livewire."
+    },
+    {
+      "id": "1543ff5c-7983-4456-9f18-3ef72c297b08",
+      "name": "Cleanup dan Optimisasi Kode Payment",
+      "description": "Membersihkan duplicate code, unused files, dan mengoptimalkan performance payment system untuk production readiness.",
+      "notes": "Hati-hati saat menghapus files, pastikan tidak menghapus yang masih digunakan. Focus pada optimization tanpa breaking existing functionality.",
+      "status": "pending",
+      "dependencies": [
+        {
+          "taskId": "49ee0f29-e375-41de-bba8-9f8758165c01"
+        }
+      ],
+      "createdAt": "2025-09-13T18:18:13.915Z",
+      "updatedAt": "2025-09-13T18:18:13.915Z",
+      "relatedFiles": [
+        {
+          "path": "resources/views/checkout-simple.blade.php",
+          "type": "REFERENCE",
+          "description": "Alternative checkout implementation"
+        },
+        {
+          "path": "public/real-checkout-test.html",
+          "type": "REFERENCE",
+          "description": "Test file yang mungkin bisa dihapus"
+        },
+        {
+          "path": "resources/views/test-checkout-debug.blade.php",
+          "type": "REFERENCE",
+          "description": "Debug file untuk review"
+        }
+      ],
+      "implementationGuide": "1. Review dan hapus duplicate payment implementations\n2. Consolidate similar functions dan remove unused code\n3. Optimize script loading performance\n4. Add caching untuk configuration data\n5. Review dan improve code documentation\n\nOptimization Areas:\n```\n1. Remove duplicate test files yang tidak diperlukan\n2. Consolidate multiple payment implementations\n3. Add configuration caching\n4. Optimize JavaScript bundle size\n5. Add proper code documentation\n```",
+      "verificationCriteria": "1. Tidak ada duplicate code atau unused files\n2. Performance payment system optimal\n3. Code documentation lengkap dan jelas\n4. Configuration caching berfungsi\n5. JavaScript bundle size optimal\n6. Production readiness tercapai",
+      "analysisResult": "Tujuan utama adalah memperbaiki masalah popup pembayaran Midtrans yang tidak muncul pada aplikasi Laravel 12 dengan Livewire 3. Root cause utama adalah race condition antara script loading dan event handling, serta inconsistent configuration management. Solusi harus mengikuti arsitektur existing project dengan Repository Pattern dan best practices Laravel/Livewire."
+    }
+  ]
+}

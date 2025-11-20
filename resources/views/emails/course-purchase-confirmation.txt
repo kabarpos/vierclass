@@ -1,0 +1,41 @@
+Course Purchase Confirmation - {{ $course->name }}
+
+🎉 PURCHASE SUCCESSFUL!
+
+Hello {{ $user->name }},
+
+Congratulations! Your course purchase has been successfully processed. You now have LIFETIME ACCESS to your new course.
+
+COURSE INFORMATION:
+==================
+Course Name: {{ $course->name }}
+@if($course->tagline)
+Description: {{ $course->tagline }}
+@endif
+Price: Rp {{ number_format($course->price, 0, ',', '.') }}
+
+TRANSACTION DETAILS:
+===================
+Transaction ID: {{ $transaction->booking_trx_id }}
+Purchase Date: {{ $transaction->created_at->format('d M Y, H:i') }}
+Payment Status: ✓ PAID
+Access Status: ✓ ACTIVE
+
+WHAT'S NEXT?
+============
+1. ACCESS YOUR COURSE: Visit {{ $courseUrl }} to start learning immediately
+2. LIFETIME ACCESS: You can return to this course anytime - it's yours forever!
+3. TRACK PROGRESS: Visit your dashboard {{ $dashboardUrl }} to see all your courses
+4. GET SUPPORT: Need help? Contact our support team at {{ $supportUrl }}
+
+We're excited to be part of your learning journey. If you have any questions or need assistance, don't hesitate to reach out to our support team.
+
+Happy learning!
+The {{ \App\Helpers\WebsiteSettingHelper::get('site_name', 'LMS Platform') }} Team
+
+---
+This email was sent to {{ $user->email }}
+© {{ date('Y') }} {{ \App\Helpers\WebsiteSettingHelper::get('site_name', 'LMS Platform') }}. All rights reserved.
+
+If you're having trouble accessing your course, copy and paste this URL into your web browser:
+{{ $courseUrl }}
