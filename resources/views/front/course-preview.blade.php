@@ -121,7 +121,7 @@
                                  x-transition:leave="transition ease-in duration-150"
                                  x-transition:leave-start="opacity-100 transform scale-100"
                                  x-transition:leave-end="opacity-0 transform scale-95"
-                                 class="mt-3 ml-11 space-y-2">
+                                 class="mt-3 ml-4 space-y-2">
                                 @foreach($section->sectionContents as $contentIndex => $content)
                                     @php
                                         $isActive = $currentSection && $section->id == $currentSection->id && $sectionContent->id == $content->id;
@@ -181,7 +181,7 @@
                                                     <h4 class="font-medium text-sm {{ $isActive ? 'text-gold-400' : 'text-beige-50 group-hover:text-gold-400' }} line-clamp-2 leading-tight">
                                                         {{ $lessonNumber }}. {{ $content->name }}
                                                     </h4>
-                                                    <div class="flex items-center text-xs text-beige-400 mt-1">
+                                                    <!-- <div class="flex items-center text-xs text-beige-400 mt-1">
                                                         @if($content->is_free)
                                                             <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gold-500/20 text-gold-400">
                                                                 <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -202,7 +202,7 @@
                                                                 ✓ Completed
                                                             </span>
                                                         @endif
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 
                                                 <!-- Active Indicator -->
@@ -220,10 +220,10 @@
                 
                 <!-- CTA Section -->
                 @if(!auth()->check())
-                <div class="p-6 bg-gradient-to-r from-gold-600 to-gold-700 text-white">
+                <div class="p-6 bg-gradient-to-r from-gold-600 to-gold-700 text-white mx-6 my-6 border border-gold-600 rounded-lg">
                     <div class="text-center">
-                        <h3 class="text-lg font-bold mb-2">Ready to Continue?</h3>
-                        <p class="text-sm text-gold-100 mb-4">Get full access to all lessons, quizzes, and certificates.</p>
+                        <h3 class="text-xl font-bold mb-2">Ready to Continue?</h3>
+                        <!-- <p class="text-sm text-gold-100 mb-4">Get full access to all lessons, quizzes, and certificates.</p> -->
                         <div class="space-y-3">
                             <a href="{{ route('dashboard.course.join', $course->slug) }}" 
                                class="w-full inline-flex items-center justify-center px-4 py-3 bg-white text-gold-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
