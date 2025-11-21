@@ -156,13 +156,13 @@
                                                             </svg>
                                                         </div>
                                                     @elseif($isCompleted)
-                                                        <div class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center">
+                                                        <div class="w-6 h-6 bg-gold-600 text-white rounded-full flex items-center justify-center">
                                                             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                                                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                                                             </svg>
                                                         </div>
                                                     @elseif($content->is_free)
-                                                        <div class="w-6 h-6 bg-green-100 text-green-600 group-hover:bg-gold-100 group-hover:text-gold-600 rounded-full flex items-center justify-center">
+                                                        <div class="w-6 h-6 bg-gold-500/20 text-gold-400 group-hover:bg-gold-500/30 rounded-full flex items-center justify-center">
                                                             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                                                             </svg>
@@ -349,43 +349,23 @@
                 <article class="max-w-4xl mx-auto">
                     <div class="px-6 sm:px-8 lg:px-10 py-8 lg:py-12">
                         @if(!$sectionContent->is_free && !auth()->check())
-                            <!-- Premium Locked Content -->
-                            <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
-                                <div class="flex items-start">
-                                    <svg class="w-6 h-6 text-red-600 mt-1 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <!-- TOTAL BLOCK FOR SECURITY -->
+                            <div class="text-center py-16">
+                                <div class="w-32 h-32 bg-rebel-red-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <svg class="w-16 h-16 text-rebel-red-600" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 616 0z" clip-rule="evenodd"/>
                                     </svg>
-                                    <div class="flex-1">
-                                        <h3 class="text-lg font-semibold text-red-900 mb-2">🔒 Premium Content Locked</h3>
-                                        <p class="text-red-800 text-sm leading-relaxed mb-4">
-                                            This lesson contains premium content that requires authentication. Please login or create an account to access this material.
-                                        </p>
-                                        <div class="flex flex-col sm:flex-row gap-3">
-                                            <a href="{{ route('login') }}" 
-                                               class="inline-flex items-center px-4 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors cursor-pointer">
-                                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
-                                                </svg>
-                                                Login to Access
-                                            </a>
-                                            <a href="{{ route('register') }}" 
-                                               class="inline-flex items-center px-4 py-2 bg-gold-600 text-white font-semibold rounded-lg hover:bg-gold-700 transition-colors cursor-pointer">
-                                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                                                </svg>
-                                                Create Account
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
-                            
-                            <!-- Blurred Content Preview - NO YOUTUBE FOR PUBLIC -->
-                            <div class="relative">
-                                <div class="filament-rich-content prose prose-lg max-w-none content-typography blur-sm opacity-30 pointer-events-none">
-                                    {!! \Filament\Forms\Components\RichEditor\RichContentRenderer::make($sectionContent->content ?? '')->toHtml() !!}
-                                </div>
-                                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white to-white pointer-events-none"></div>
+                                <h3 class="text-2xl font-bold text-beige-50 mb-3">Premium Content Protected</h3>
+                                <p class="text-beige-300 max-w-md mx-auto mb-6">This content is exclusively available to registered members.</p>
+                                
+                                <a href="{{ route('register') }}" 
+                                   class="inline-flex items-center px-6 py-3 bg-gold-600 text-white font-semibold rounded-lg hover:bg-gold-700 transition-colors cursor-pointer">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                    </svg>
+                                    Create Account
+                                </a>
                             </div>
                         @elseif(!$sectionContent->is_free)
                             <!-- Premium Content for Authenticated Users -->
